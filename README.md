@@ -1,6 +1,6 @@
-# Network Scanner
+# Python Best Practices and Examples
 
-A Python script for scanning local networks to discover active devices and their hostnames.
+A collection of Python best practices, coding standards, and example files demonstrating proper project structure and coding guidelines.
 
 ## Versions
 
@@ -10,7 +10,7 @@ A Python script for scanning local networks to discover active devices and their
 
 - [Versions](#versions)
 - [Badges](#badges)
-- [Installation](#installation)
+- [Repository Contents](#repository-contents)
 - [Usage](#usage)
 - [License](#license)
 - [Contributing](#contributing)
@@ -20,35 +20,51 @@ A Python script for scanning local networks to discover active devices and their
 ![Python](https://img.shields.io/badge/Python-3.6%2B-blue)
 ![License](https://img.shields.io/badge/License-MIT-green)
 
-## Installation
+## Repository Contents
 
-1. Clone the repository or download the script
-2. Install optional dependencies for enhanced hostname resolution:
+This repository contains three main components:
 
-    ```bash
-    pip3 install pynetbios zeroconf
-    ```
+1. **Python Coding Standards** (`python-coding-standards.md`)
+   - Comprehensive guide for Python programming
+   - Best practices for code readability
+   - Project structure guidelines
+   - Efficient coding techniques
+   - Advanced Python features
 
-3. For additional hostname resolution methods, install nmap:
-   - macOS: `brew install nmap`
-   - Linux (Debian/Ubuntu): `sudo apt-get install nmap`
-   - Linux (CentOS/RHEL): `sudo yum install nmap`
+2. **Example Boilerplate** (`boilerplate-example.py`)
+   - Working example implementing the coding standards
+   - Demonstrates proper code organization
+   - Shows practical usage of Python features
+   - Includes comprehensive comments and documentation
+
+3. **Project Structure Example**
+
+   ```markdown
+   project/
+   ├── docs/
+   ├── tests/
+   │   └── __init__.py
+   ├── src/
+   │   └── __init__.py
+   ├── README.md
+   ├── requirements.txt
+   └── setup.py
+   ```
 
 ## Usage
 
-1. Make the script executable:
+1. **Reading the Standards**
+   - Start with `python-coding-standards.md` for comprehensive guidelines
+   - Use it as a reference when writing Python code
 
-    ```bash
-    chmod +x scan-local-network.py
-    ```
+2. **Using the Boilerplate**
+   - Copy `boilerplate-example.py` as a starting point for new Python scripts
+   - Study the implementation of best practices
+   - Modify according to your needs
 
-2. Run the script:
-
-    ```bash
-    ./scan-local-network.py
-    ```
-
-The script will scan your local network and display discovered devices with their IP addresses and hostnames (when available).
+3. **Project Structure**
+   - Use the provided structure as a template for new Python projects
+   - Adapt the structure based on your project's specific needs
 
 ## License
 
