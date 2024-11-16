@@ -1,10 +1,10 @@
 # The Ultimate Python Programming Guide
 
-**One Sentence Summary**
+## One Sentence Summary
 
 This guide provides comprehensive best practices for Python programming, covering code readability, efficient coding techniques, project structure, and leveraging Python's features for writing clean, maintainable, and professional code.
 
-**Table of Contents**
+## Table of Contents
 
 1. [Introduction](#introduction)
 2. [Setting Up a Python Project Repository](#setting-up-a-python-project-repository)
@@ -59,7 +59,7 @@ Writing Pythonic code not only enhances readability and maintainability but also
   - **Documentation:** Include a `docs/` directory for project documentation.
 - **Example Structure:**
 
-  ```
+  ```markdown
   my_project/
   ├── my_package/
   │   ├── __init__.py
@@ -86,16 +86,21 @@ Writing Pythonic code not only enhances readability and maintainability but also
 - **Isolate Project Dependencies:** Use virtual environments to create isolated spaces for project-specific dependencies, avoiding conflicts between packages.
 - **Tools:**
   - **venv (Python 3):** Built-in module for creating virtual environments.
+
     ```bash
     python3 -m venv env
     source env/bin/activate
     ```
+
   - **virtualenv:** Third-party tool for Python 2 and 3.
+
     ```bash
     virtualenv env
     source env/bin/activate
     ```
+
   - **Conda:** An alternative package and environment manager.
+
     ```bash
     conda create -n myenv python=3.8
     conda activate myenv
@@ -116,10 +121,13 @@ Writing Pythonic code not only enhances readability and maintainability but also
   - **Spacing:** Use spaces around operators and after commas, but not directly inside brackets, parentheses, or braces.
 - **Automatic Formatting Tools:**
   - **Black:** An opinionated code formatter.
+
     ```bash
     black your_code.py
     ```
+
   - **Flake8:** For style guide enforcement.
+
     ```bash
     flake8 your_code.py
     ```
@@ -127,6 +135,7 @@ Writing Pythonic code not only enhances readability and maintainability but also
 ### Write Readable Code
 
 - **Use Meaningful Names:** Choose descriptive names for variables, functions, and classes that convey their purpose.
+
   ```python
   # Good
   total_price = item_quantity * item_price
@@ -134,27 +143,34 @@ Writing Pythonic code not only enhances readability and maintainability but also
   # Bad
   tp = iq * ip
   ```
+
 - **Comment Wisely:** Add comments to explain the 'why' behind complex code segments.
+
   ```python
   # Adjust price for inflation
   adjusted_price = base_price * inflation_rate
   ```
+
 - **Avoid Complexity:** Break down complex functions into smaller, reusable functions.
 - **Use Line Breaks and White Space:** Separate logical sections of code with blank lines.
 
 ### Create Readable Documentation
 
 - **Docstrings:** Use triple-quoted strings at the beginning of modules, classes, and functions to describe their purpose.
+
   ```python
   def calculate_area(radius):
       """Calculate the area of a circle given its radius."""
       return math.pi * radius ** 2
   ```
+
 - **Documentation Tools:** Utilize Sphinx or MkDocs to generate documentation from docstrings.
   - **Sphinx Example:**
+
     ```bash
     sphinx-quickstart
     ```
+
 - **Markdown Files:** Use `README.md` for project overview and `CONTRIBUTING.md` for contribution guidelines.
 
 ### The Zen of Python
@@ -172,15 +188,18 @@ Writing Pythonic code not only enhances readability and maintainability but also
 ### Iterate with `enumerate()` Instead of `range(len())`
 
 - **Enhanced Readability:** Use `enumerate()` to get both the index and the item when iterating over a sequence.
+
   ```python
   for index, value in enumerate(my_list):
       print(f"Index: {index}, Value: {value}")
   ```
+
 - **Avoids Errors:** Prevents off-by-one errors and makes the code cleaner.
 
 ### Use List Comprehensions Instead of Raw For-Loops
 
 - **Concise and Efficient:** List comprehensions provide a compact way to create lists.
+
   ```python
   # Using a for-loop
   squares = []
@@ -190,7 +209,9 @@ Writing Pythonic code not only enhances readability and maintainability but also
   # Using a list comprehension
   squares = [x**2 for x in range(10)]
   ```
+
 - **Supports Conditional Logic:**
+
   ```python
   even_squares = [x**2 for x in range(10) if x % 2 == 0]
   ```
@@ -203,6 +224,7 @@ Writing Pythonic code not only enhances readability and maintainability but also
   - **Set:** Unordered collections of unique elements.
   - **Dictionary:** Unordered collections of key-value pairs.
 - **Example:**
+
   ```python
   # Use a set for membership testing
   if item in items_set:
@@ -212,10 +234,13 @@ Writing Pythonic code not only enhances readability and maintainability but also
 ### Sort Complex Iterables with `sorted()`
 
 - **Custom Sorting:** Use the `key` parameter for custom sorting criteria.
+
   ```python
   sorted_users = sorted(users, key=lambda user: user.age)
   ```
+
 - **Reverse Sorting:**
+
   ```python
   sorted_users = sorted(users, key=lambda user: user.age, reverse=True)
   ```
@@ -223,10 +248,13 @@ Writing Pythonic code not only enhances readability and maintainability but also
 ### Store Unique Values with Sets
 
 - **Eliminate Duplicates:** Sets automatically remove duplicate entries.
+
   ```python
   unique_items = set(items_list)
   ```
+
 - **Efficient Membership Tests:**
+
   ```python
   if value in unique_items:
       print("Value exists")
@@ -235,13 +263,16 @@ Writing Pythonic code not only enhances readability and maintainability but also
 ### Save Memory with Generators
 
 - **Lazy Evaluation:** Generators yield items one at a time and are memory-efficient.
+
   ```python
   def read_large_file(file_name):
       with open(file_name) as file:
           for line in file:
               yield line
   ```
+
 - **Generator Expressions:**
+
   ```python
   squares = (x**2 for x in range(1000000))
   ```
@@ -249,10 +280,13 @@ Writing Pythonic code not only enhances readability and maintainability but also
 ### Define Default Values in Dictionaries with `.get()` and `.setdefault()`
 
 - **Avoid KeyErrors with `.get()`:**
+
   ```python
   value = my_dict.get('key', default_value)
   ```
+
 - **Initialize and Retrieve with `.setdefault()`:**
+
   ```python
   value = my_dict.setdefault('key', default_value)
   ```
@@ -260,11 +294,14 @@ Writing Pythonic code not only enhances readability and maintainability but also
 ### Count Hashable Objects with `collections.Counter`
 
 - **Efficient Counting:**
+
   ```python
   from collections import Counter
   word_counts = Counter(words_list)
   ```
+
 - **Most Common Elements:**
+
   ```python
   most_common = word_counts.most_common(5)
   ```
@@ -272,10 +309,13 @@ Writing Pythonic code not only enhances readability and maintainability but also
 ### Concatenate Strings with `.join()`
 
 - **Efficient Concatenation:**
+
   ```python
   sentence = ' '.join(words_list)
   ```
+
 - **Avoids Inefficient String Addition:**
+
   ```python
   # Inefficient
   sentence = ''
@@ -286,10 +326,13 @@ Writing Pythonic code not only enhances readability and maintainability but also
 ### Merge Dictionaries with the `**` Operator (Python 3.5+)
 
 - **Elegant Merging:**
+
   ```python
   combined_dict = {**dict_a, **dict_b}
   ```
+
 - **For Earlier Versions (Python < 3.5):**
+
   ```python
   combined_dict = dict_a.copy()
   combined_dict.update(dict_b)
@@ -298,11 +341,14 @@ Writing Pythonic code not only enhances readability and maintainability but also
 ### Simplify if-Statements with `if x in list`
 
 - **Cleaner Conditionals:**
+
   ```python
   if color in ['red', 'green', 'blue']:
       print("It's a primary color.")
   ```
+
 - **Use Sets for Large Membership Tests:**
+
   ```python
   valid_items = set(large_list)
   if item in valid_items:
@@ -314,6 +360,7 @@ Writing Pythonic code not only enhances readability and maintainability but also
 ### Write Object-Oriented Code
 
 - **Modular and Reusable:**
+
   ```python
   class Vehicle:
       def __init__(self, make, model):
@@ -328,17 +375,21 @@ Writing Pythonic code not only enhances readability and maintainability but also
           super().__init__(make, model)
           self.doors = doors
   ```
+
 - **Encapsulation:** Group related variables and functions together.
 
 ### Format Strings with f-Strings (Python 3.6+)
 
 - **Readable Formatting:**
+
   ```python
   name = 'Alice'
   age = 30
   greeting = f'Hello, {name}. You are {age} years old.'
   ```
+
 - **Expressions Inside Strings:**
+
   ```python
   result = f'{4 * 10}'
   # Result: '40'
@@ -350,9 +401,11 @@ Writing Pythonic code not only enhances readability and maintainability but also
 
 - **Reuse Existing Libraries:**
   - **Install Packages:**
+
     ```bash
     pip install requests
     ```
+
   - **Examples of Useful Packages:**
     - **requests:** For HTTP requests.
     - **numpy:** For numerical computations.
@@ -369,16 +422,19 @@ Writing Pythonic code not only enhances readability and maintainability but also
 - **Prompt Bug Fixes:** Fix errors as soon as they are identified to prevent cascading issues.
 - **Use Debuggers:**
   - **pdb Module:**
+
     ```python
     import pdb
     pdb.set_trace()
     ```
+
 - **Write Tests:**
   - **Use unittest or pytest frameworks to write test cases.**
 
 ### What Not to Do While Programming in Python
 
 - **Avoid Wildcard Imports:**
+
   ```python
   # Don't do this
   from module import *
@@ -386,8 +442,10 @@ Writing Pythonic code not only enhances readability and maintainability but also
   # Do this instead
   from module import specific_function
   ```
+
 - **Do Not Modify `sys.path` Manually:** Use proper packaging and installation methods.
 - **Avoid Using Mutable Default Arguments:**
+
   ```python
   # Bad
   def func(default_list=[]):
@@ -398,7 +456,9 @@ Writing Pythonic code not only enhances readability and maintainability but also
       if default_list is None:
           default_list = []
   ```
+
 - **Do Not Suppress Exceptions Without Handling:**
+
   ```python
   # Bad
   try:
