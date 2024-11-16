@@ -54,11 +54,11 @@ This repository contains three main components:
 ## Usage
 
 1. **Reading the Standards**
-   - Start with [python-coding-standards.md](python-coding-standards.md) for comprehensive guidelines
+   - Start with [python-coding-standards.md](docs/python-coding-standards.md) for comprehensive guidelines
    - Use it as a reference when writing Python code
 
 2. **Using the Boilerplate**
-   - Copy [boilerplate-example.py](boilerplate-example.py) as a starting point for new Python scripts
+   - Copy [boilerplate-example.py](docs/boilerplate-example.py) as a starting point for new Python scripts
    - Study the implementation of best practices
    - Modify according to your needs
 
