@@ -24,14 +24,14 @@ A collection of Python best practices, coding standards, and example files demon
 
 This repository contains three main components:
 
-1. **Python Coding Standards** (`python-coding-standards.md`)
+1. **Python Coding Standards** ([python-coding-standards.md](python-coding-standards.md))
    - Comprehensive guide for Python programming
    - Best practices for code readability
    - Project structure guidelines
    - Efficient coding techniques
    - Advanced Python features
 
-2. **Example Boilerplate** (`boilerplate-example.py`)
+2. **Example Boilerplate** ([boilerplate-example.py](boilerplate-example.py))
    - Working example implementing the coding standards
    - Demonstrates proper code organization
    - Shows practical usage of Python features
@@ -54,11 +54,11 @@ This repository contains three main components:
 ## Usage
 
 1. **Reading the Standards**
-   - Start with `python-coding-standards.md` for comprehensive guidelines
+   - Start with [python-coding-standards.md](python-coding-standards.md) for comprehensive guidelines
    - Use it as a reference when writing Python code
 
 2. **Using the Boilerplate**
-   - Copy `boilerplate-example.py` as a starting point for new Python scripts
+   - Copy [boilerplate-example.py](boilerplate-example.py) as a starting point for new Python scripts
    - Study the implementation of best practices
    - Modify according to your needs
 
