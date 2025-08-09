@@ -1,6 +1,6 @@
-# Python Best Practices and Examples
+# Python CLI Package Boilerplate (PDM + Typer)
 
-A collection of Python best practices, coding standards, and example files demonstrating proper project structure and coding guidelines.
+A modern Python CLI package boilerplate using PDM for package management and Typer for CLI functionality. The package is organized into clearly separated submodules (e.g., `my_package/cli/`, `my_package/utils/`) and follows the coding rules in `docs/python-coding-standards.md` with Google style docstrings.
 
 ## Versions
 
@@ -11,60 +11,65 @@ A collection of Python best practices, coding standards, and example files demon
 - [Versions](#versions)
 - [Badges](#badges)
 - [Repository Contents](#repository-contents)
-- [Usage](#usage)
+- [Getting Started (PDM)](#getting-started-pdm)
 - [License](#license)
 - [Contributing](#contributing)
 
 ## Badges
 
-![Python](https://img.shields.io/badge/Python-3.6%2B-blue)
+![Python](https://img.shields.io/badge/Python-3.9%2B-blue)
 ![License](https://img.shields.io/badge/License-MIT-green)
 
 ## Repository Contents
 
-This repository contains three main components:
+- **Python Coding Standards**: see `docs/python-coding-standards.md`.
+- **Package**: `my_package/` with submodules:
+  - `my_package/cli/` Typer app and commands
+  - `my_package/utils/` reusable helpers
+  - `my_package/__about__.py` version metadata
+  - `my_package/__init__.py` top-level exports
+- **Tests**: `tests/`
+- **Build/Deps**: `pyproject.toml` managed by PDM
 
-1. **Python Coding Standards** ([python-coding-standards.md](docs/python-coding-standards.md))
-   - Comprehensive guide for Python programming
-   - Best practices for code readability
-   - Project structure guidelines
-   - Efficient coding techniques
-   - Advanced Python features
+## Getting Started (PDM)
 
-2. **Example Boilerplate** ([boilerplate-example.py](docs/boilerplate-example.py))
-   - Working example implementing the coding standards
-   - Demonstrates proper code organization
-   - Shows practical usage of Python features
-   - Includes comprehensive comments and documentation
+Prerequisite: install [PDM](https://pdm.fming.dev)
 
-3. **Project Structure Example**
+```bash
+python3 -m pip install -U pdm
+```
 
-   ```markdown
-   project/
-   ├── docs/
-   ├── tests/
-   │   └── __init__.py
-   ├── src/
-   │   └── __init__.py
-   ├── README.md
-   ├── requirements.txt
-   └── setup.py
-   ```
+Install dependencies and set up a local venv:
 
-## Usage
+```bash
+pdm install
+```
 
-1. **Reading the Standards**
-   - Start with [python-coding-standards.md](docs/python-coding-standards.md) for comprehensive guidelines
-   - Use it as a reference when writing Python code
+Run the CLI (installed console script):
 
-2. **Using the Boilerplate**
-   - Copy [boilerplate-example.py](docs/boilerplate-example.py) as a starting point for new Python scripts
-   - Study the implementation of best practices
-   - Modify according to your needs
+```bash
+pdm run my-package --help
+pdm run my-package --version
+pdm run my-package hello Alice
+```
 
-3. **Project Structure**
-   - Use the provided structure as a template for new Python projects
-   - Adapt the structure based on your project's specific needs
+Run tests:
+
+```bash
+pdm run pytest
+```
+
+Code quality:
+
+```bash
+pdm run ruff check .
+pdm run black .
+```
+
+Notes:
+
+- Legacy files like `setup.py` and `requirements.txt` are no longer used with PDM.
+- Entry point is defined in `pyproject.toml` under `[project.scripts]` as `my-package`.
 
 ## License
 
