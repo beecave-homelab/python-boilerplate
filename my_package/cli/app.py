@@ -6,13 +6,11 @@ project's coding standards and uses Google style docstrings.
 """
 from __future__ import annotations
 
-from typing import Optional
-
 import typer
 from rich.console import Console
 
-from ..__about__ import __version__
-from ..utils.helpers import greet
+from my_package.__about__ import __version__
+from my_package.utils.helpers import greet
 
 app = typer.Typer(help="my_package command-line interface")
 console = Console()
@@ -23,6 +21,10 @@ def version_callback(value: bool) -> None:
 
     Args:
         value: Whether the ``--version`` flag was provided.
+
+    Raises:
+        typer.Exit: When the version flag is provided.
+
     """
     if value:
         console.print(f"my_package {__version__}")
@@ -32,7 +34,7 @@ def version_callback(value: bool) -> None:
 @app.callback()
 def main(
     ctx: typer.Context,
-    version: Optional[bool] = typer.Option(  # noqa: UP007 - Optional for clarity in help
+    version: bool | None = typer.Option(  # noqa: UP007 - Optional for clarity in help
         None,
         "--version",
         callback=version_callback,
@@ -47,6 +49,7 @@ def main(
     Args:
         ctx: Typer context object.
         version: If provided, prints version and exits.
+
     """
     ctx.ensure_object(dict)
 
@@ -57,6 +60,7 @@ def hello(name: str = typer.Argument(..., help="Name to greet")) -> None:
 
     Args:
         name: The name to greet.
+
     """
     message = greet(name)
     console.print(message)

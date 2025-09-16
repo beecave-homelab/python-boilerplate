@@ -31,13 +31,13 @@ When in doubt, prefer **correctness → clarity → consistency → brevity** (i
 
 ## 2) PEP 8 surface rules (Ruff `E`, `W` — pycodestyle)
 
-### What it enforces
+### What PEP 8 enforces
 
 - Basic spacing/blank-line/indentation hygiene.
 - No trailing whitespace.
 - Reasonable line breaks; respect the project’s configured line length (see `ruff.toml`).
 
-### Agent checklist
+### PEP 8 agent checklist
 
 - Let the formatter handle whitespace; don’t fight it.
 - Break long expressions cleanly (after operators, around commas, etc.).
@@ -47,14 +47,14 @@ When in doubt, prefer **correctness → clarity → consistency → brevity** (i
 
 ## 3) Naming conventions (Ruff `N` — pep8-naming)
 
-### What it enforces
+### What naming conventions enforce
 
 - `snake_case` for functions, methods, and non-constant variables.
 - `CapWords` (PascalCase) for classes.
 - `UPPER_CASE` for module-level constants.
 - Exception classes named `SomethingError` and subclass `Exception`.
 
-### Agent checklist
+### Naming conventions agent checklist
 
 - Don’t introduce camelCase unless mirroring a third-party API; if you must, add a local pragma to silence `N` for that line only.
 
@@ -62,7 +62,7 @@ When in doubt, prefer **correctness → clarity → consistency → brevity** (i
 
 ## 4) Imports: order & style (Ruff `I` — isort rules)
 
-### What it enforces
+### What import rules enforce
 
 - Imports grouped as:
 
@@ -73,7 +73,7 @@ When in doubt, prefer **correctness → clarity → consistency → brevity** (i
 - Alphabetical within groups; one blank line between groups.
 - Prefer **one import per line** for clarity.
 
-### Agent checklist
+### Import agent checklist
 
 - Keep all imports **top-of-file** (module scope).
 - Don’t alias unless it **adds clarity** (e.g., `import numpy as np`).
@@ -148,13 +148,13 @@ class ResourceManager:
 
 ## 6) Import hygiene (Ruff `TID` — flake8-tidy-imports)
 
-### What it enforces
+### What import hygiene enforces
 
 - Prefer absolute imports over deep relative imports.
 - Avoid circular imports by organizing modules; don’t import inside functions unless necessary for performance or to break a cycle.
 - Avoid re-exporting large surfaces implicitly; if you re-export, do it explicitly via `__all__`.
 
-### Agent checklist
+### Import hygiene agent checklist
 
 - Use `from pkg.subpkg import thing` (absolute), **not** `from .subpkg import thing`, unless it’s the clear local intent and passes lint.
 - Gate optional imports like this:
@@ -170,14 +170,14 @@ except ModuleNotFoundError:  # pragma: no cover
 
 ## 7) Modern Python upgrades (Ruff `UP` — pyupgrade)
 
-### What it enforces / prefers
+### What modern Python upgrades enforce
 
 - **f-strings** over `format()` / `%` formatting.
 - Built-in *PEP 585* generics (`list[str]`, `dict[str, int]`) over `typing.List`, `typing.Dict`, etc.
 - **Context managers** where appropriate.
 - Remove legacy constructs (`six`, old `u''` prefixes, redundant `object` inheritance, etc.).
 
-### Agent checklist
+### Modern Python upgrades agent checklist
 
 - Prefer `pathlib.Path` to raw string paths.
 - Prefer assignment expressions (`:=`) **sparingly** when it improves clarity.
@@ -187,7 +187,7 @@ except ModuleNotFoundError:  # pragma: no cover
 
 ## 8) Future annotations (Ruff `FA` — flake8-future-annotations)
 
-### What it enforces
+### What future annotations enforce
 
 - Each module must begin with:
 
@@ -195,7 +195,7 @@ except ModuleNotFoundError:  # pragma: no cover
 from __future__ import annotations
 ```
 
-### Agent checklist
+### Future annotations agent checklist
 
 - Place it at the **very top**, after the encoding line (if any) and before all other imports.
 - Don’t add it twice; Ruff will tell you.

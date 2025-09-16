@@ -15,6 +15,7 @@ def greet(name: str) -> str:
 
     Returns:
         A greeting string addressing the provided name.
+
     """
     normalized = name.strip() or "there"
     return f"Hello, {normalized}!"
